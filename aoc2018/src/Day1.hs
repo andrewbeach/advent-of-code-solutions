@@ -2,18 +2,19 @@ module Day1 ( part1
             , part2
             ) where
 
-import qualified Data.Set as Set
+import qualified Data.IntSet as IntSet
+import Data.Maybe (Maybe(Just, Nothing))
 
 parseDelta :: String -> Int
 parseDelta s = read $ filter (/= '+') s
 
-findRepeatFreq :: [Int] -> Int -> Set.Set Int -> Int
-findRepeatFreq [] _ _ = undefined
+findRepeatFreq :: [Int] -> Int -> IntSet.IntSet -> Maybe Int
+findRepeatFreq [] _ _ = Nothing
 findRepeatFreq (d:ds) lastF fs
-  | Set.member newF fs = newF
+  | IntSet.member newF fs = Just newF
   | otherwise = findRepeatFreq ds newF newFs
   where newF = lastF + d
-        newFs = Set.insert newF fs
+        newFs = IntSet.insert newF fs
 
 part1 :: IO Int
 part1 = do
@@ -23,4 +24,5 @@ part1 = do
 part2 :: IO Int
 part2 = do
   deltas <- (map parseDelta . lines) <$> readFile "data/day1.txt"
-  return $ findRepeatFreq (cycle deltas) 0 Set.empty
+  maybeFreq <- return $ findRepeatFreq (cycle deltas) 0 IntSet.empty
+  return $ maybe 0 id maybeFreq
