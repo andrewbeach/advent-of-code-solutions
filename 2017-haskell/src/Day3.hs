@@ -1,5 +1,6 @@
 module Day3 where
 
+-- WIP
 -- The number falls in a square where the
 --   bottom-right is the square of an odd number
 
