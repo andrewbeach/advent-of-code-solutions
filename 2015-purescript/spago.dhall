@@ -5,7 +5,17 @@ You can edit this file as you like.
 { name =
     "my-project"
 , dependencies =
-    [ "console", "effect", "either", "psci-support" ]
+    [ "aff"
+    , "console"
+    , "effect"
+    , "either"
+    , "integers"
+    , "node-buffer"
+    , "node-fs-aff"
+    , "psci-support"
+    , "string-parsers"
+    , "strings"
+    ]
 , packages =
     ./packages.dhall
 , sources =
