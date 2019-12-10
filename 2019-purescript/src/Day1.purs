@@ -19,16 +19,15 @@ massToFuelRec = go 0
     go :: Fuel -> Mass -> Fuel
     go acc m 
       | m <= 0    = acc
-      | otherwise = go (acc + df) df 
-      where df = massToFuel m
+      | otherwise = let df = massToFuel m in go (acc + df) df 
 
-sumFuel :: (Mass -> Fuel) -> Array String -> Fuel 
-sumFuel f = map (parseInt >>> map f)
-        >>> catMaybes 
-        >>> sum 
+run :: (Mass -> Fuel) -> Array String -> Fuel 
+run f = map (parseInt >>> map f)
+    >>> catMaybes 
+    >>> sum 
 
 main :: Effect Unit 
 main = withLines "data/day1.txt" $
   runDay 1 
-    $  sumFuel massToFuel
-    /\ sumFuel massToFuelRec
+    $  run massToFuel
+    /\ run massToFuelRec

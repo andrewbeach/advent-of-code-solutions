@@ -40,6 +40,17 @@ withLines filename f = launchAff_ do
   _ <- liftEffect $ f $ parseLines text
   pure unit
 
+type Delim = String
+
+parseDelim :: Delim -> String -> Array String 
+parseDelim = split <<< Pattern  
+
+withDelim :: forall a. Delim -> Filename -> (Array String -> Effect a) -> Effect Unit
+withDelim delim filename f = launchAff_ do 
+  text <- readTextFile UTF8 filename 
+  _ <- liftEffect $ f $ parseDelim delim text 
+  pure unit 
+
 readCharArray :: Filename -> Aff (Array Char)
 readCharArray filename = do 
     text <- readTextFile UTF8 filename
