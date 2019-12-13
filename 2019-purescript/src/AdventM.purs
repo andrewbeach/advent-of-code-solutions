@@ -41,21 +41,21 @@ instance canLogAdventM :: CanLog AdventM where
   log     = liftEffect <<< Console.log
   logShow = liftEffect <<< Console.logShow
 
+logPart :: forall a b. Int -> Part a b -> a -> AdventM Unit
+logPart n part input = 
+  log (header n) *> runPart part input *> log rule 
+  where
+    header = append "Part " <<< show
+    rule = "-------------"
+    
 instance runPartAdventM :: RunDay AdventM where
-  runPart input (Part { parse, run }) = 
-    input # parse # run # log 
+  runPart (Part { parse, run }) = parse >>> run >>> log 
 
   runDay reader (Day { id, parts }) = do 
-     log $ "--- Day " <> show id <> " ---"
-     env <- ask
-     input <- reader env.filename
-     log "Part 1"
-     runPart input (fst parts)
-     let rule = "-------------"
-     log rule
-     log "Part 2"
-     runPart input (snd parts)
-     log rule
+    log $ "--- Day " <> show id <> " ---"
+    env <- ask
+    input <- reader env.filename
+    logPart 1 (fst parts) input *> logPart 2 (snd parts) input 
 
 runAdventM :: Env -> AdventM ~> Aff
 runAdventM e (AdventM m) = runReaderT m e

@@ -21,5 +21,5 @@ data Day a b c = Day
 type Day_ a b = Day a b b
 
 class Monad m <= RunDay m where
-  runPart :: forall a b. a -> Part a b -> m Unit
+  runPart :: forall a b. Part a b -> a -> m Unit
   runDay  :: forall a b c. (Filename -> m a) -> Day a b c -> m Unit 
