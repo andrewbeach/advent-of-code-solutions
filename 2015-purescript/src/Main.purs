@@ -2,9 +2,9 @@ module Main where
 
 import Prelude
 
-import Advent.Day5 as Day5
+import Advent.Day8 as Day8
 import Effect (Effect)
 
 main :: Effect Unit
 main = do
-    Day5.main
+    Day8.main

@@ -23,9 +23,9 @@ parenValues = map parenValue <<< toCharArray
 
 part1 :: Array Int -> Effect Unit 
 part1 values = do 
-    let floor  = sum values
-        result = "Part 1: " <> (show $ floor) <> " floors"
-    log result
+  let floor  = sum values
+      result = "Part 1: " <> (show $ floor) <> " floors"
+  log result
     
 part2 :: Array Int -> Effect Unit 
 part2 values = do 

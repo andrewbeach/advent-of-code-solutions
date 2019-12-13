@@ -16,6 +16,7 @@ You can edit this file as you like.
     , "psci-support"
     , "string-parsers"
     , "strings"
+    , "tuples"
     ]
 , packages =
     ./packages.dhall
