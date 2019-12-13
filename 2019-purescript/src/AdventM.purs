@@ -48,7 +48,7 @@ logPart n part input =
     header = append "Part " <<< show
     rule = "-------------"
     
-instance runPartAdventM :: RunDay AdventM where
+instance runDayAdventM :: RunDay AdventM where
   runPart (Part { parse, run }) = parse >>> run >>> log 
 
   runDay reader (Day { id, parts }) = do 
