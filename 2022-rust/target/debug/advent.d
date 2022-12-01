@@ -1,0 +1,1 @@
+/Users/andrewbeach/code/personal/advent-of-code-solutions/2022-rust/target/debug/advent: /Users/andrewbeach/code/personal/advent-of-code-solutions/2022-rust/src/day1.rs /Users/andrewbeach/code/personal/advent-of-code-solutions/2022-rust/src/main.rs
