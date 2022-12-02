@@ -1,0 +1,7 @@
+/Users/andrewbeach/code/personal/advent-of-code-solutions/2022-rust/target/debug/deps/advent-8c8216b481dc2327: src/main.rs src/day1.rs src/util.rs
+
+/Users/andrewbeach/code/personal/advent-of-code-solutions/2022-rust/target/debug/deps/advent-8c8216b481dc2327.d: src/main.rs src/day1.rs src/util.rs
+
+src/main.rs:
+src/day1.rs:
+src/util.rs:
