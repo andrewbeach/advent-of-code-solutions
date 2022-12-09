@@ -1,6 +1,5 @@
-use std::error::Error;
 use std::fs;
-
+use std::error::Error;
 use crate::util::{self, Config};
 
 fn parse_input(input: &str) -> Vec<u32> {
@@ -24,19 +23,13 @@ fn parse_input(input: &str) -> Vec<u32> {
 pub fn run(config: Config) -> Result<util::Day<u32, u32>, Box<dyn Error>> {
     // Part One
     let contents = fs::read_to_string(config.file_path)?;
-    let calories_by_elf = parse_input(&contents);
-    let part_one_result = calories_by_elf.into_iter().max();
-
+    
     // Part Two
-    let calories_by_elf = parse_input(&contents);
-    let mut part_two_result_vec = calories_by_elf.clone();
-    part_two_result_vec.sort_by(|a, b| b.cmp(a));
-    let part_two_result: u32 = part_two_result_vec[0..3].iter().sum();
 
     let day = util::Day {
-        day: 1,
-        part1: part_one_result,
-        part2: Some(part_two_result),
+        day: 2,
+        part1: None,
+        part2: None,
     };
 
     Ok(day)
