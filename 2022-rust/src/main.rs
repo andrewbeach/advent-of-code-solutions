@@ -6,6 +6,7 @@ mod day1;
 mod day2;
 mod day3;
 mod util;
+mod char;
 
 fn handle_day_results<
   T: Display, 
