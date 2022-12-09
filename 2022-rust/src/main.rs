@@ -4,6 +4,7 @@ use std::fmt::Display;
 
 mod day1;
 mod day2;
+mod day3;
 mod util;
 
 fn handle_day_results<
@@ -26,6 +27,7 @@ fn run_day(config: util::Config) {
     match config.day.as_str() {
         "1" => { handle_day_results(day1::run(config)) }
         "2" => { handle_day_results(day2::run(config)) }
+        "3" => { handle_day_results(day3::run(config)) }
         _ => { eprintln!("Day {} not solved yet", config.day) }
     }
 }
