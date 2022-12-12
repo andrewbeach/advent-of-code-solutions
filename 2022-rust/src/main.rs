@@ -5,6 +5,10 @@ use std::fmt::Display;
 mod day1;
 mod day2;
 mod day3;
+mod day4;
+// mod day5;
+mod day6;
+mod day7;
 mod util;
 mod char;
 
@@ -29,6 +33,10 @@ fn run_day(config: util::Config) {
         "1" => { handle_day_results(day1::run(config)) }
         "2" => { handle_day_results(day2::run(config)) }
         "3" => { handle_day_results(day3::run(config)) }
+        "4" => { handle_day_results(day4::run(config)) }
+        // "5" => { handle_day_results(day5::run(config)) }
+        "6" => { handle_day_results(day6::run(config)) }
+        "7" => { handle_day_results(day7::run(config)) }
         _ => { eprintln!("Day {} not solved yet", config.day) }
     }
 }
